@@ -24,7 +24,17 @@ defaults
 
 listen stats
   bind *:8001
+  option httpclose
+  option forwardfor
   stats enable
-  stats uri /
+  stats uri /haproxy?stats
   stats auth admin:123123q
   stats realm HAProxy\ Statistics
+
+frontend web-app
+  bind *:80
+  default_backend web-app-servers
+
+backend web-app-servers
+  balance roundrobin{{range service "production.web"}}
+  service {{.ID}} {{.Address}}:{{.Port}}{{end}}
