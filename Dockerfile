@@ -19,7 +19,7 @@ RUN chmod u+x /startup.sh
 ADD hap.sh /hap.sh
 RUN chmod u+x /hap.sh
 
-RUN curl -L -o /usr/local/bin/consul-template https://github.com/hashicorp/consul-template/releases/download/v0.1.0/consul-template_0.1.0_linux_amd64.tar.gz && \
+RUN curl -L -o /usr/local/bin/consul-template https://github.com/hashicorp/consul-template/releases/download/v0.3.0/consul-template_0.3.0_linux_amd64.tar.gz && \
   chmod a+x /usr/local/bin/consul-template
 
 ONBUILD ADD haproxy.template /etc/haproxy/haproxy.template
