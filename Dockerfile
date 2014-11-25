@@ -25,7 +25,7 @@ RUN curl -L -o /tmp/consul-template https://github.com/hashicorp/consul-template
   cp consul-template_0.3.0_linux_amd64/consul-template /usr/local/bin/consul-template && \
   chmod a+x /usr/local/bin/consul-template
 
-ONBUILD ADD haproxy.template /etc/haproxy/haproxy.template
+ADD haproxy.template /etc/haproxy/haproxy.template
 
 WORKDIR /
 
